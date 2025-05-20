@@ -1,0 +1,125 @@
+
+<!-- Gallery Container -->
+<section class="max-w-screen-2xl mx-auto pb-10 py-0 scroll-smooth sm:px-4">
+  <!-- Outer scroll container with -mx-4 to counter padding -->
+  <div class="-mx-4 sm:mx-0 overflow-x-auto overflow-y-hidden">
+    <!-- Inner flex container with proper spacing -->
+    <div class="flex flex-nowrap gap-4 px-4 sm:px-0 sm:flex-wrap sm:justify-center">
+
+      <!-- Card 1: Residential -->
+      <div class="relative flex-shrink-0 w-[140px] sm:w-[180px] h-[340px] sm:h-[420px] overflow-hidden shadow-lg rounded-md">
+        <img src="redidential.jpg" alt="Residential" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-50">
+          <span class="absolute text-white text-xl sm:text-2xl font-bold uppercase px-2 py-1 drop-shadow-lg"
+            style="top: 60%; right: 12px; transform-origin: right; transform: translateY(-50%) rotate(270deg); white-space: nowrap;">
+            RESIDENTIAL
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 2: Commercial -->
+      <div class="relative flex-shrink-0 w-[140px] sm:w-[180px] h-[340px] sm:h-[420px] overflow-hidden shadow-lg rounded-md">
+        <img src="COMMERCIAL.jpg" alt="Commercial" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-50">
+          <span class="absolute text-white text-xl sm:text-2xl font-bold uppercase px-2 py-1 drop-shadow-lg"
+            style="top: 56%; right: 12px; transform-origin: right; transform: translateY(-50%) rotate(270deg); white-space: nowrap;">
+            COMMERCIAL
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 3: Office -->
+      <div class="relative flex-shrink-0 w-[140px] sm:w-[180px] h-[340px] sm:h-[420px] overflow-hidden shadow-lg rounded-md">
+        <img src="OFFICE.jpg" alt="Office" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-50">
+          <span class="absolute text-white text-xl sm:text-2xl font-bold uppercase px-2 py-1 drop-shadow-lg"
+            style="top: 73%; right: 12px; transform-origin: right; transform: translateY(-50%) rotate(270deg); white-space: nowrap;">
+            OFFICE
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 4: Interior -->
+      <div class="relative flex-shrink-0 w-[140px] sm:w-[180px] h-[340px] sm:h-[420px] overflow-hidden shadow-lg rounded-md">
+        <img src="INTERIOR.jpeg.jpg" alt="Interior" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-50">
+          <span class="absolute text-white text-xl sm:text-2xl font-bold uppercase px-2 py-1 drop-shadow-lg"
+            style="top: 68%; right: 12px; transform-origin: right; transform: translateY(-50%) rotate(270deg); white-space: nowrap;">
+            INTERIOR
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 5: Landscaping -->
+      <div class="relative flex-shrink-0 w-[140px] sm:w-[180px] h-[340px] sm:h-[420px] overflow-hidden shadow-lg rounded-md">
+        <img src="landscapping.jpg" alt="Landscaping" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-50">
+          <span class="absolute text-white text-xl sm:text-2xl font-bold uppercase px-2 py-1 drop-shadow-lg"
+            style="top: 53%; right: 12px; transform-origin: right; transform: translateY(-50%) rotate(270deg); white-space: nowrap;">
+            LANDSCAPING
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 6: Vastu -->
+      <div class="relative flex-shrink-0 w-[140px] sm:w-[180px] h-[340px] sm:h-[420px] overflow-hidden shadow-lg rounded-md">
+        <img src="vastu.jpg" alt="Vastu" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-50">
+          <span class="absolute text-white text-xl sm:text-2xl font-bold uppercase px-2 py-1 drop-shadow-lg"
+            style="top: 73%; right: 12px; transform-origin: right; transform: translateY(-50%) rotate(270deg); white-space: nowrap;">
+            VASTU
+          </span>
+        </div>
+      </div>
+
+      <!-- Card 7: Showroom -->
+      <div class="relative flex-shrink-0 w-[140px] sm:w-[180px] h-[340px] sm:h-[420px] overflow-hidden shadow-lg rounded-md">
+        <img src="https://i.pinimg.com/474x/19/95/8a/19958a414aa952ea66e5015b64abe11a.jpg" alt="Showroom" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black bg-opacity-50">
+          <span class="absolute text-white text-xl sm:text-2xl font-bold uppercase px-2 py-1 drop-shadow-lg"
+            style="top: 58%; right: 12px; transform-origin: right; transform: translateY(-50%) rotate(270deg); white-space: nowrap;">
+            SHOWROOM
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<script>
+  const scrollContainer = document.querySelector('.-mx-4.sm\\:mx-0.overflow-x-auto');
+
+  if (scrollContainer) {
+    let scrollPos = 0;
+    let direction = 1; // 1 = scroll right, -1 = scroll left
+    const speed = 1; // pixels per frame
+
+    function autoScroll() {
+      if (window.innerWidth >= 640) {
+        // Desktop: reset scroll and stop animation
+        scrollContainer.scrollLeft = 0;
+        return;
+      }
+
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      scrollPos += direction * speed;
+      if (scrollPos >= maxScroll) direction = -1;
+      if (scrollPos <= 0) direction = 1;
+
+      scrollContainer.scrollLeft = scrollPos;
+
+      requestAnimationFrame(autoScroll);
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 640) {
+        scrollContainer.scrollLeft = 0;
+      }
+    });
+
+    window.addEventListener('load', () => {
+      autoScroll();
+    });
+  }
+</script>
